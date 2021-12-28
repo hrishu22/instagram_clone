@@ -9,6 +9,8 @@ import './App.css'
 import {BrowserRouter, Routes, Route, Switch, useNavigate} from 'react-router-dom'
 import {reducer,initialState} from './reducers/userReducer'
 import UserProfile from './components/screens/UserProfile'
+// import Reset from './components/screens/Reset'
+// import NewPassword from './components/screens/Newpassword'
 import SubscribedUserPosts from './components/screens/SubscribesUserPosts'
 export const UserContext = createContext()
 const Routing = ()=>{
@@ -22,6 +24,7 @@ const Routing = ()=>{
           // history('/')
         }
         else{
+          // if(!history.location.pathname.startWith('/reset'))
           history('/signin')
         }
     },[])
@@ -35,6 +38,10 @@ const Routing = ()=>{
         <Route path="/create" element={<CreatePost/>}/>
         <Route path="/profile/:userid" element={<UserProfile/>}/>
         <Route path="/myfollowingpost" element={<SubscribedUserPosts/>}/>
+        {/* <Route exact path="/reset" element={<Reset/>}/>
+        
+       <Route path="/reset/:token" element={<NewPassword />}/> */}
+  
     </Routes>
   
   )

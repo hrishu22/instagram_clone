@@ -1,8 +1,8 @@
 import React,{useState,useContext,} from 'react'
-import {Link,useHistory} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import M from 'materialize-css'
 const Reset  = ()=>{
-    const history = useHistory()
+    const history = useNavigate()
     const [email,setEmail] = useState("")
     const PostData = ()=>{
         if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
@@ -24,7 +24,7 @@ const Reset  = ()=>{
            }
            else{
                M.toast({html:data.message,classes:"#43a047 green darken-1"})
-               history.push('/signin')
+               history('/signin')
            }
         }).catch(err=>{
             console.log(err)
